@@ -37,3 +37,4 @@ local.properties
 **/android/key.properties
 *.jks
 *.keystore
+api/server
