@@ -10,3 +10,9 @@
 - `api/cmd/server/main.go`: standard-library HTTP server on `:8080`
 - `GET /health` returns `{"status":"ok"}` (200, `application/json`). Other methods get 405, unknown paths 404.
 - Verify: `cd api && GO111MODULE=on go run ./cmd/server`, then `curl -i localhost:8080/health`
+
+## Task 3: Makefile task runner
+- Root `Makefile` with `make api-run`, `make api-test`, `make app-run` (defaults to Chrome, override with `make app-run DEVICE=macos`)
+- `GO111MODULE=on` is set inside the Makefile only, global Go setting untouched
+- `api/cmd/server/main_test.go`: test for the `/health` handler
+- Verify: `make api-test`, `make api-run` then `curl -i localhost:8080/health`, `make app-run`
